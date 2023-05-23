@@ -41,8 +41,9 @@ const App = () => {
       <div className={`container`}>
         <Header darkMode={setDarkMode} />
         <Search handleSearch={setSearchText} />
+
         <NotesList
-          notes={notes.filter((item) => {
+          notes={!notes? notes: notes.filter((item) => {
             return item.name.toLowerCase().includes(searchText);
           })}
           changeNotes={changeNotes}
