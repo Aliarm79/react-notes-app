@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const AddNotes = ({ changeNotes }) => {
   const [newNote, setNewNote] = useState("");
+  const [color, setColor] = useState("");
+  console.log(color);
   const remaining = 200;
   const handelChange = (e) => {
     if (remaining - newNote.length > 0) {
@@ -12,7 +14,7 @@ const AddNotes = ({ changeNotes }) => {
   };
   const handleAddNotes = () => {
     if (newNote.trim().length > 0 && remaining - newNote.length >= 0) {
-      changeNotes(newNote);
+      changeNotes(newNote,color);
       setNewNote("");
     } else {
       setNewNote("");
@@ -29,6 +31,13 @@ const AddNotes = ({ changeNotes }) => {
       ></textarea>
       <div className="new-footer">
         <span>{remaining - newNote.length} remaining</span>
+        <input
+          type="color"
+          value={color}
+          onChange={(e) => {
+            setColor(e.target.value);
+          }}
+        />
         <button className="save" onClick={handleAddNotes}>
           Save
         </button>
