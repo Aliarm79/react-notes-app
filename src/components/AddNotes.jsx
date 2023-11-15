@@ -32,6 +32,7 @@ const AddNotes = ({ changeNotes }) => {
       <div className="new-footer">
         <span>{remaining - newNote.length} remaining</span>
         <input
+          className="color-input"
           type="color"
           value={color}
           onChange={(e) => {
